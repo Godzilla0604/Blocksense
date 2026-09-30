@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: dark; }
+  html, body, #root { min-height: 100%; }
+  body {
+    @apply bg-base text-primary font-sans antialiased;
+    font-feature-settings: "tnum" 1, "cv11" 1;
+  }
+  ::selection { background: rgba(34, 211, 238, 0.25); }
+  :focus-visible { outline: 2px solid #22D3EE; outline-offset: 2px; border-radius: 6px; }
+  * { scrollbar-width: thin; scrollbar-color: #232B3D transparent; }
+}
+
+@layer components {
+  .card { @apply bg-card border border-subtle rounded-card p-5; }
+  .panel { @apply bg-panel border border-subtle rounded-card; }
+  .label { @apply text-xs text-secondary tracking-wide; }
+  .mono { @apply font-mono; }
+  .skeleton {
+    @apply rounded-md animate-shimmer;
+    background: linear-gradient(90deg, #1a2236 0%, #222c44 50%, #1a2236 100%);
+    background-size: 800px 100%;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-subtle px-3 py-1 text-xs
+      text-secondary transition-colors duration-150 hover:text-primary hover:border-[#33405a];
+  }
+  .chip[data-active="true"] { @apply border-accent text-accent bg-accent/10; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
