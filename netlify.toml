@@ -1,0 +1,7 @@
+[build]
+  command = "pip install -r backend/requirements.txt && python backend/export_static.py && cd frontend && npm ci && npm run build:static"
+  publish = "frontend/dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+  NODE_VERSION = "20"
