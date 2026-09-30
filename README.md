@@ -1,4 +1,4 @@
-# BlockSense
+# blocksense
 
 AI-assisted Bitcoin transaction intelligence console (SIH 2026, PS 26146).
 It surfaces anomalies and risk signals for investigation. It never asserts guilt or identity.
